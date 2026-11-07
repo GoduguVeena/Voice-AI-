@@ -24,11 +24,14 @@ def require_upstream() -> Path:
     return path
 
 
-def run_upstream(config_path: Path, mode: str) -> None:
+def run_upstream(config_path: Path, mode: str, text_file: Path | None = None) -> None:
     config = load_config(config_path)
     root = require_upstream()
     command = config["upstream"][mode]
-    rendered = [str(part).format(**config["paths"]) for part in command]
+    values = dict(config["paths"])
+    if text_file is not None:
+        values["text_file"] = str(text_file.resolve())
+    rendered = [str(part).format(**values) for part in command]
     print("Running:", shlex.join(rendered))
     subprocess.run(rendered, cwd=root, check=True)
 

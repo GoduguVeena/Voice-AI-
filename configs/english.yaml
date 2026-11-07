@@ -5,8 +5,8 @@ paths:
   output: Results/English
   checkpoint: Results/English/checkpoints/latest.pth.tar
 upstream:
-  train: [python, train.py, --restore_step, "0", --dataset, svarah]
-  inference: [python, synthesize.py, --text, English/test_sentences.txt, --restore_step, "0"]
+  train: [python, train.py, -p, config/LJSpeech/preprocess.yaml, -m, config/LJSpeech/model.yaml, -t, config/LJSpeech/train.yaml]
+  inference: [python, synthesize.py, --source, "{text_file}", --restore_step, "0", --mode, batch, -p, config/LJSpeech/preprocess.yaml, -m, config/LJSpeech/model.yaml, -t, config/LJSpeech/train.yaml]
 training:
   train_hours: 5
   validation_hours: 1
