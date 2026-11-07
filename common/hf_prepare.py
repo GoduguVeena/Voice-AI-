@@ -84,7 +84,7 @@ def main() -> None:
         filename = f"{split}_{len(rows[split]):06d}.wav"
         path = output_audio / filename
         sf.write(path, samples, sample_rate)
-        rows[split].append((path.resolve(), _text(record), _speaker(record), duration))
+        rows[split].append((Path("wavs") / filename, _text(record), _speaker(record), duration))
         durations[split] += duration
         if (index + 1) % 25 == 0:
             print(
