@@ -1,6 +1,6 @@
 $ErrorActionPreference = "Stop"
 
-$python = "C:\Users\G Veena\AppData\Local\Programs\Python\Python313\python.exe"
+$python = (Get-Command python -ErrorAction Stop).Source
 $upstream = Join-Path $PWD "external\FastSpeech2"
 
 if (-not (Test-Path $upstream)) {
