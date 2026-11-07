@@ -24,6 +24,8 @@ pip install -r requirements.txt
 
 The model implementation is the upstream FastSpeech 2 reference implementation. Set `FASTSPEECH2_ROOT` to a local checkout of `ming024/FastSpeech2` before training. This keeps the assignment code reproducible and avoids copying a large third-party model into the submission.
 
+On Windows, run `.[1msetup_windows.ps1[0m` from PowerShell to install the project and upstream dependencies and set the local checkout path.
+
 ## Data preparation
 
 Prepare a CSV with columns `audio,text` (paths may be absolute or relative to the CSV) and run one command per language:
