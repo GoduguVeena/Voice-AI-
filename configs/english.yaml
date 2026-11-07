@@ -1,0 +1,14 @@
+language: english
+dataset: Svarah
+paths:
+  data: data/English
+  output: Results/English
+  checkpoint: Results/English/checkpoints/latest.pth.tar
+upstream:
+  train: [python, train.py, --restore_step, "0", --dataset, svarah]
+  inference: [python, synthesize.py, --text, English/test_sentences.txt, --restore_step, "0"]
+training:
+  train_hours: 5
+  validation_hours: 1
+  sample_rate: 22050
+  seed: 42

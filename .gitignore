@@ -1,0 +1,24 @@
+# Local environments and caches
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.cache/
+
+# Hugging Face and local dataset audio
+.cache/huggingface/
+data/*/wavs/
+data/**/*.parquet
+
+# Training outputs can be several gigabytes; publish selected small artifacts only.
+Results/*/checkpoints/
+Results/*/audio/
+*.pth
+*.pth.tar
+*.pt
+
+# Secrets and local configuration
+.env
+.env.*
+!.env.example
