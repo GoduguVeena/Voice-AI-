@@ -45,6 +45,8 @@ def main() -> None:
 
     dataset = load_dataset(args.dataset, split=args.split, streaming=True, token=True)
     dataset = dataset.cast_column("audio", Audio(decode=False))
+    if hasattr(dataset, "decode"):
+        dataset = dataset.decode(False)
     train_seconds = args.train_hours * 3600
     validation_seconds = args.validation_hours * 3600
     durations = {"train": 0.0, "validation": 0.0}
