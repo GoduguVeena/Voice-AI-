@@ -35,7 +35,7 @@ python English/preprocess.py --input data/svarah.csv --output data/English --see
 python Telugu/preprocess.py --input data/indictts_telugu.csv --output data/Telugu --seed 42
 ```
 
-For the supplied Hugging Face datasets, accept the Svarah access conditions in your browser first, set `HF_TOKEN` in the local terminal, and stream only the assignment subset:
+For the supplied Hugging Face datasets, accept the Svarah access conditions in your browser first. Authenticate persistently with `hf auth login` or set `HF_TOKEN` in the same terminal that runs the preparation command, then stream only the assignment subset:
 
 ```bash
 python English/download_prepare.py --dataset ai4bharat/Svarah --split test --output data/English
