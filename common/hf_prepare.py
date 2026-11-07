@@ -4,6 +4,7 @@ import argparse
 import csv
 import hashlib
 import io
+import json
 import sys
 from pathlib import Path
 
@@ -102,6 +103,23 @@ def main() -> None:
             writer = csv.writer(handle)
             writer.writerow(["audio", "text", "speaker", "duration"])
             writer.writerows(split_rows)
+    (args.output / "preparation.json").write_text(
+        json.dumps(
+            {
+                "dataset": args.dataset,
+                "source_split": args.split,
+                "seed": args.seed,
+                "train_hours_target": args.train_hours,
+                "validation_hours_target": args.validation_hours,
+                "train_hours_actual": round(durations["train"] / 3600, 4),
+                "validation_hours_actual": round(durations["validation"] / 3600, 4),
+                "train_utterances": len(rows["train"]),
+                "validation_utterances": len(rows["validation"]),
+            },
+            indent=2,
+        ),
+        encoding="utf-8",
+    )
     print(f"Prepared {args.dataset}: train={durations['train'] / 3600:.2f}h, validation={durations['validation'] / 3600:.2f}h")
 
 
