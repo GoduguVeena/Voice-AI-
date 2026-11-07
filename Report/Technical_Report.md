@@ -4,6 +4,10 @@
 
 This project trains independent FastSpeech 2 models for English (Svarah) and Telugu (IndicTTS Telugu). The upstream reference implementation is used for the acoustic model, while this repository supplies reproducible dataset preparation, language entry points, experiment configuration, synthesis inputs, and variance-adaptor analysis.
 
+## Current artifact status
+
+The repository currently contains the reproducible implementation and a locally generated Telugu manifest. The English manifest, model training, checkpoints, synthesized audio, plots, and measured loss results are not yet present. They must be generated before this report can be submitted as a completed experimental report; no result values are invented here.
+
 ## 2. Dataset and preprocessing
 
 | Language | Dataset | Training audio | Validation audio | Seed |

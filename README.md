@@ -58,3 +58,5 @@ The training wrapper delegates to the checked-out upstream implementation and re
 ## Reproducibility
 
 The dataset archives and trained checkpoints are intentionally not committed. Place them in the paths declared in the YAML files, or provide an accessible download URL in the report. See [Report/Technical_Report.md](Report/Technical_Report.md) for the preprocessing decisions, experiment table, and result-analysis checklist.
+
+See [SUBMISSION_STATUS.md](SUBMISSION_STATUS.md) for the verified deliverables and the experiment artifacts that still need to be generated before final submission.
